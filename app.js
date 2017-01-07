@@ -4,9 +4,9 @@ var app = express();
 // config
 const config = require('./config')(process.env.ENV);
 
-app.get('/', function (req, res) {
-  res.send('Hello World!');
-});
+// routing
+const public_index = require('./routes/public/index');
+app.use('/', public_index);
 
 app.listen(config.port, function () {
   console.log('Example app listening on port ' + config.port);
